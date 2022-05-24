@@ -17,7 +17,7 @@ public class Application {
             log.info("Registering bot...");
             telegramBotsApi.registerBot(new SimpleEchoBot());
         } catch (TelegramApiRequestException e) {
-            log.info("Failed to register bot(check internet connection/bot token/make sure only one instance of bot is running).");
+            log.info("Failed to register bot(check internet connection / bot token or make sure only one instance of bot is running).");
             e.printStackTrace();
         }
         log.info("Telegram bot is ready to accept updates from user......");
