@@ -23,13 +23,16 @@ public class SimpleEchoBot extends TelegramLongPollingBot {
             Long userId = update.getMessage().getChatId();
             String userFirstName = update.getMessage().getFrom().getFirstName();
 
+            //printing user messages
             log.info("[{}, {}] : {}", userId, userFirstName, textFromUser);
 
+            //Building Request to be send to Telegram API
             SendMessage sendMessage = SendMessage.builder()
                     .chatId(update.getMessage().getChat().getId().toString())
                     .text("Hello, I've received your text: " + textFromUser)
                     .build();
             try {
+                //sending message via Telegram API
                 this.sendApiMethod(sendMessage);
             } catch (TelegramApiException e) {
                 log.error("Exception when sending message: ", e);
@@ -50,6 +53,6 @@ public class SimpleEchoBot extends TelegramLongPollingBot {
     public String getBotToken() {
         // do not expose the token to the repository,
         // always provide it externally(for example as environmental variable)
-        return "your_bot_token";
+        return "5376833410:AAHGWf9ahmX7vW-dr157Kckr6BaxzZrRmAs";
     }
 }
