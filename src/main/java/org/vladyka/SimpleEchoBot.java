@@ -53,6 +53,6 @@ public class SimpleEchoBot extends TelegramLongPollingBot {
     public String getBotToken() {
         // do not expose the token to the repository,
         // always provide it externally(for example as environmental variable)
-        return "5376833410:AAHGWf9ahmX7vW-dr157Kckr6BaxzZrRmAs";
+        return "bot-token";
     }
 }
