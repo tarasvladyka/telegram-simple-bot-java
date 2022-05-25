@@ -20,7 +20,7 @@ public class SimpleEchoBot extends TelegramLongPollingBot {
         if(update.hasMessage() && update.getMessage().hasText()) {
             String textFromUser = update.getMessage().getText();
 
-            Long userId = update.getMessage().getFrom().getId();
+            Long userId = update.getMessage().getChatId();
             String userFirstName = update.getMessage().getFrom().getFirstName();
 
             log.info("[{}, {}] : {}", userId, userFirstName, textFromUser);
@@ -32,7 +32,6 @@ public class SimpleEchoBot extends TelegramLongPollingBot {
             try {
                 this.sendApiMethod(sendMessage);
             } catch (TelegramApiException e) {
-                //just print stack trace for now
                 log.error("Exception when sending message: ", e);
             }
         } else {
